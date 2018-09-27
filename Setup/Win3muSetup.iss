@@ -22,9 +22,9 @@ AppSupportURL=http://www.toptensoftware.com
 AppUpdatesURL=http://www.toptensoftware.com
 ArchitecturesInstallIn64BitMode=x64
 DefaultDirName={#TargetDir}
-DisableDirPage=yes
+DisableDirPage=no
 DefaultGroupName=Win3mu
-DisableProgramGroupPage=yes
+DisableProgramGroupPage=no
 OutputBaseFilename=SetupWin3mu-{#BuildNumber}
 OutputDir=..\build\Setups
 SetupIconFile=..\Win3mu\Icon.ico
@@ -41,11 +41,16 @@ MinVersion=0,5.1.2600sp3
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "{#SourceDir}\obfuscated\Win3muRuntime.dll"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
-Source: "{#SourceDir}\obfuscated\Win3muTool.exe"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
-Source: "{#SourceDir}\obfuscated\Win3muProxy.exe"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
-Source: "{#SourceDir}\obfuscated\Win3mu.exe"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
-Source: "{#SourceDir}\obfuscated\config.json"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\PetaJson.dll"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Sharp86.dll"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Sharp86DebuggerCore.dll"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Sharp86TextGuiDebugger.dll"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Win3muCore.dll"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Win3muRuntime.dll"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Win3muTool.exe"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Win3muProxy.exe"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\Win3mu.exe"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
+Source: "{#SourceDir}\config.json"; DestDir: "{#TargetDir}"; Flags: ignoreversion;
 
 ; common
 Source: ".\dotNetFx40_Client_setup.exe"; DestDir: {tmp}; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected 
