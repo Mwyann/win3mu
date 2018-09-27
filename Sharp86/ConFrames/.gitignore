@@ -1,0 +1,13 @@
+# git-ls-files --others --exclude-from=.git/info/exclude
+
+bin
+obj
+build
+Debug
+Release
+TestResults
+.vs
+*.sdf
+*.opendb
+*.opensdf
+*.user

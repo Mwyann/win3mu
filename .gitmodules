@@ -1,0 +1,9 @@
+[submodule "PetaJson"]
+	path = PetaJson
+	url = git@github.com:toptensoftware/PetaJson.git
+	branch = master
+[submodule "Sharp86"]
+	path = Sharp86
+	url = git@bitbucket.org:toptensoftware/Sharp86.git
+	branch = master
+	

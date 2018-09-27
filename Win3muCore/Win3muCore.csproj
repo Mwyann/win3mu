@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB08F1A5-EFF9-406E-85D3-4037DE69C9AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Win3muCore</RootNamespace>
+    <AssemblyName>Win3muCore</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\build\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PETAJSON_NO_DATACONTRACT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Config.cs" />
+    <Compile Include="Debugging\DebuggerCommandExtensions.cs" />
+    <Compile Include="Debugging\StackWalker.cs" />
+    <Compile Include="Debugging\SymbolResolver.cs" />
+    <Compile Include="Debugging\Win3muDebugger.cs" />
+    <Compile Include="Debugging\WndProcBreakPoint.cs" />
+    <Compile Include="Debugging\WndProcSymbolScope.cs" />
+    <Compile Include="EmulatedModules\DosApi.cs" />
+    <Compile Include="EmulatedModules\DdeML.cs" />
+    <Compile Include="EmulatedModules\Shell.cs" />
+    <Compile Include="EmulatedModules\Sound.cs" />
+    <Compile Include="HandleMaps\HCF.cs" />
+    <Compile Include="HandleMaps\HDC.cs" />
+    <Compile Include="HandleMaps\HMETAFILE.cs" />
+    <Compile Include="HandleMaps\HACCEL.cs" />
+    <Compile Include="HandleMaps\HGDIOBJ.cs" />
+    <Compile Include="HandleMaps\HMENU.cs" />
+    <Compile Include="HandleMaps\HWND.cs" />
+    <Compile Include="Interop\nuint.cs" />
+    <Compile Include="Interop\nint.cs" />
+    <Compile Include="Memory\HeapPointer.cs" />
+    <Compile Include="Memory\StringHeap.cs" />
+    <Compile Include="MessageSemantics\ClassComboBox.cs" />
+    <Compile Include="MessageSemantics\ClassListBox.cs" />
+    <Compile Include="MessageSemantics\MessageMap.cs" />
+    <Compile Include="MessageSemantics\WM_ACTIVATE.cs" />
+    <Compile Include="MessageSemantics\WM_COMMAND.cs" />
+    <Compile Include="MessageSemantics\WM_CTLCOLOR.cs" />
+    <Compile Include="MessageSemantics\WM_DESTROY.cs" />
+    <Compile Include="MessageSemantics\WM_GETFONT.cs" />
+    <Compile Include="MessageSemantics\WM_DELETEITEM.cs" />
+    <Compile Include="MessageSemantics\WM_MEASUREITEM.cs" />
+    <Compile Include="MessageSemantics\WM_DRAWITEM.cs" />
+    <Compile Include="MessageSemantics\WM_GETMINMAXINFO.cs" />
+    <Compile Include="MessageSemantics\WM_GETTEXT.cs" />
+    <Compile Include="MessageSemantics\WM_INITDIALOG.cs" />
+    <Compile Include="MessageSemantics\WM_MENUCHAR.cs" />
+    <Compile Include="MessageSemantics\WM_MENUSELECT.cs" />
+    <Compile Include="MessageSemantics\WM_NCCALCSIZE.cs" />
+    <Compile Include="MessageSemantics\WM_NCCREATE.cs" />
+    <Compile Include="MessageSemantics\WM_NCDESTROY.cs" />
+    <Compile Include="MessageSemantics\WM_NEXTMENU.cs" />
+    <Compile Include="MessageSemantics\WM_PARENTNOTIFY.cs" />
+    <Compile Include="MessageSemantics\WM_SETTEXT.cs" />
+    <Compile Include="MessageSemantics\WM_TIMER.cs" />
+    <Compile Include="MessageSemantics\WM_XSCROLL.cs" />
+    <Compile Include="NeFile\AppFlags.cs" />
+    <Compile Include="NeFile\EntryPoint.cs" />
+    <Compile Include="NeFile\MzHeader.cs" />
+    <Compile Include="NeFile\NeFileReader.cs" />
+    <Compile Include="NeFile\NeHeader.cs" />
+    <Compile Include="NeFile\RelocationAddressType.cs" />
+    <Compile Include="NeFile\RelocationEntry.cs" />
+    <Compile Include="NeFile\RelocationType.cs" />
+    <Compile Include="NeFile\ResourceEntry.cs" />
+    <Compile Include="NeFile\ResourceTableType.cs" />
+    <Compile Include="NeFile\SegmentEntry.cs" />
+    <Compile Include="NeFile\SegmentFlags.cs" />
+    <Compile Include="NeFile\TargetOS.cs" />
+    <Compile Include="LoadResource\Resources.cs" />
+    <Compile Include="Utils\BitUtils.cs" />
+    <Compile Include="Utils\CommandLine.cs" />
+    <Compile Include="Utils\ConsoleHelper.cs" />
+    <Compile Include="Utils\DosPath.cs" />
+    <Compile Include="Utils\HandleMap.cs" />
+    <Compile Include="EmulatedModules\Keyboard.cs" />
+    <Compile Include="Utils\JsonMerge.cs" />
+    <Compile Include="Utils\MarshalStruct.cs" />
+    <Compile Include="Utils\MessageNames.cs" />
+    <Compile Include="Utils\ProcMap.cs" />
+    <Compile Include="Utils\sprintf.cs" />
+    <Compile Include="Utils\StringPointer.cs" />
+    <Compile Include="Utils\ResourceUtils.cs" />
+    <Compile Include="Utils\TempContext.cs" />
+    <Compile Include="Utils\VariableResolver.cs" />
+    <Compile Include="Windowing\CreateStructMap.cs" />
+    <Compile Include="MessageSemantics\Base.cs" />
+    <Compile Include="MessageSemantics\Bypass.cs" />
+    <Compile Include="MessageSemantics\Callable.cs" />
+    <Compile Include="MessageSemantics\Postable.cs" />
+    <Compile Include="Windowing\WindowCreationFilter.cs" />
+    <Compile Include="Windowing\IWndProcFilter.cs" />
+    <Compile Include="Windowing\Messaging.cs" />
+    <Compile Include="EmulatedModules\MMSystem.cs" />
+    <Compile Include="Utils\PathMapper.cs" />
+    <Compile Include="Utils\RangeAllocator.cs" />
+    <Compile Include="Utils\BitAllocator.cs" />
+    <Compile Include="Utils\ByteArrayHelpers.cs" />
+    <Compile Include="Core\Module32.cs" />
+    <Compile Include="Utils\EnumUtils.cs" />
+    <Compile Include="Utils\FileExtensions.cs" />
+    <Compile Include="EmulatedModules\Gdi.cs" />
+    <Compile Include="Memory\GlobalHeap.cs" />
+    <Compile Include="EmulatedModules\Kernel.cs" />
+    <Compile Include="Memory\LocalHeap.cs" />
+    <Compile Include="Utils\Log.cs" />
+    <Compile Include="Core\Machine.cs" />
+    <Compile Include="Core\ModuleBase.cs" />
+    <Compile Include="Core\Module16.cs" />
+    <Compile Include="Core\ModuleManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ResourceID.cs" />
+    <Compile Include="NeFile\ResourceTable.cs" />
+    <Compile Include="EmulatedModules\User.cs" />
+    <Compile Include="Core\VirtualException.cs" />
+    <Compile Include="Interop\Win16.cs" />
+    <Compile Include="Interop\Win32.cs" />
+    <Compile Include="Interop\WinCommon.cs" />
+    <Compile Include="Windowing\RegisteredWindowMessages.cs" />
+    <Compile Include="Windowing\WindowClass.cs" />
+    <Compile Include="Windowing\WndClassKind.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sharp86\PetaJson\PetaJson.csproj">
+      <Project>{32c1e6d1-46ba-4c3a-83bf-290e1c5d4690}</Project>
+      <Name>PetaJson</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharp86\Sharp86DebuggerCore\Sharp86DebuggerCore.csproj">
+      <Project>{5dd0e722-c0f7-46c4-8fc4-13f56d881a75}</Project>
+      <Name>Sharp86DebuggerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharp86\Sharp86TextGuiDebugger\Sharp86TextGuiDebugger.csproj">
+      <Project>{460777c5-52d2-4680-945c-037026022c02}</Project>
+      <Name>Sharp86TextGuiDebugger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharp86\Sharp86\Sharp86.csproj">
+      <Project>{b7b582a0-ced8-497b-a9b8-ef152326c713}</Project>
+      <Name>Sharp86</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

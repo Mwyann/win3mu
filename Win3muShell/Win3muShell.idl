@@ -1,0 +1,32 @@
+// Win3muShell.idl : IDL source for Win3muShell
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Win3muShell.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(342404A0-B3F5-4E53-894C-33EF03778F21),
+	pointer_default(unique)
+]
+interface IIconHandler : IUnknown{
+};
+[
+	uuid(0483B199-F81F-4983-910B-19541C36EDB2),
+	version(1.0),
+]
+library Win3muShellLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(4D0AA5D6-1C23-4975-8257-91E316544445)		
+	]
+	coclass IconHandler
+	{
+		[default] interface IIconHandler;
+	};
+};
+

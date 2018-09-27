@@ -1,0 +1,6 @@
+     1                                 %line 1+1 test.asm
+     2                                 [bits 16]
+     3 00000000 51                     push cx
+     4 00000001 FF30                   push word [bx+si]
+     5                                 
+     6                                 

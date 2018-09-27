@@ -1,0 +1,69 @@
+﻿{
+	"mountPoints":
+	{
+		"C:\\WINDOWS":
+		{
+			"host": "$(Win3muFolder)\\FILES\\WINDOWS",
+			"hostWrite":  "$(AppData)\\Win3mu\\$(AppName)\\FILES\\WINDOWS",
+		},
+		"C:\\$(AppName)":
+		{
+			"host": "$(AppFolder)",
+			"hostWrite": "$(AppData)\\Win3mu\\$(AppName)\\FILES\\$(AppName)",
+		},
+	},
+
+	"fileLogger": "$(AppData)\\Win3mu\\$(AppName).txt",
+	"consoleLogger": false,
+	"logWarnings" : true,
+	"logExecutionFormat": "$(cputime,12) $(cs):$(ip): $(asm,-30)   $(annotations)",
+
+	"debuggerSettingsFile": "$(AppData)\\Win3mu\\$(AppName).debugger.json",
+	"debuggerCommands":
+	[
+		// Put a list of debugger commands to execute
+	],
+
+	"config":
+	{
+		"debug":
+		{
+			"consoleLogger": false,
+			"enableDebugger": true,
+		},
+		"logMedium":
+		{
+			"consoleLogger": false,
+			"enableDebugger": false,
+			"logApiCalls": true,
+			"logMessages": true,
+			"logFileOperations": true,
+		},
+		"logVerbose":
+		{
+			"consoleLogger": false,
+			"enableDebugger": false,
+			"logRelocations": true,
+			"logApiCalls": true,
+			"logExecution": true,
+			"logMessages": true,
+			"logFileOperations": true,
+			"logGlobalAllocations": true,
+		}
+	},
+
+	"programSpecific":
+	{
+		"freecell":
+		{
+			"merge:systemMetrics":
+			{
+				"SM_CYCAPTION": 30,			
+			},
+			"merge:systemColors":
+			{				
+				"COLOR_MENU": 0xFFFFFF,							// menu bar "Cards Left: N"
+			},
+		}
+	}
+}

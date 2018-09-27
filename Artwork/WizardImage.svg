@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="164"
+   height="314"
+   id="svg3816"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="WizardImage.svg"
+   inkscape:export-filename="C:\Users\brad\Projects\Sharp86\Artwork\WizardImage.png"
+   inkscape:export-xdpi="90.172272"
+   inkscape:export-ydpi="90.172272">
+  <defs
+     id="defs3818" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="171.38154"
+     inkscape:cy="115.93898"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="737"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3821">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-738.36218)">
+    <rect
+       style="color:#000000;fill:#4d4d4d;fill-opacity:1;fill-rule:evenodd;stroke:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3863"
+       width="175.26147"
+       height="334.3605"
+       x="-4.5456862"
+       y="-6.2183571"
+       transform="translate(0,738.36218)" />
+    <g
+       id="g3805"
+       transform="matrix(0.08420086,0,0,0.08420086,-35.397797,752.86834)">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(1,0,-0.30156786,0.95344472,0,0)"
+         style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         d="m 1222.0969,456.47043 791.0644,0 c 40.1683,0 72.5061,41.00331 72.5061,91.93568 l 0,640.20809 c 0,50.9324 -32.3378,91.9357 -72.5061,91.9357 l -791.0644,0 c -40.1684,0 -72.5061,-41.0033 -72.5061,-91.9357 l 0,-640.20809 c 0,-50.93237 32.3377,-91.93568 72.5061,-91.93568 z"
+         id="rect3803" />
+      <text
+         xml:space="preserve"
+         style="font-size:848.57525635px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff6600;fill-opacity:1;stroke:none;font-family:Sans"
+         x="800.61761"
+         y="1159.5256"
+         id="text2996"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan2998"
+           x="800.61761"
+           y="1159.5256"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ff6600;font-family:Motorwerk;-inkscape-font-specification:Motorwerk">3</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:355.08126831px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:none;font-family:Sans"
+         x="1243.5695"
+         y="948.06592"
+         id="text2996-1"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan2998-7"
+           x="1243.5695"
+           y="948.06592"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#4d4d4d;font-family:Motorwerk;-inkscape-font-specification:Motorwerk"
+           dx="0 -8.5714283">mu</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3021"
+         y="727.78033"
+         x="955.09436"
+         style="font-size:516.72296143px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#4d4d4d;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#4d4d4d;font-family:Motorwerk;-inkscape-font-specification:Motorwerk"
+           y="727.78033"
+           x="955.09436"
+           id="tspan3023"
+           sodipodi:role="line">win</tspan></text>
+    </g>
+  </g>
+</svg>

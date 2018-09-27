@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5DD0E722-C0F7-46C4-8FC4-13F56D881A75}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sharp86</RootNamespace>
+    <AssemblyName>Sharp86DebuggerCore</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArgTailAttribute.cs" />
+    <Compile Include="BreakPoint.cs" />
+    <Compile Include="CallbackSymbol.cs" />
+    <Compile Include="Clipboard.cs" />
+    <Compile Include="CodeBreakPoint.cs" />
+    <Compile Include="CommandDispatcher.cs" />
+    <Compile Include="CpuSymbolScope.cs" />
+    <Compile Include="CpuTimeBreakPoint.cs" />
+    <Compile Include="DebuggerCommands.cs" />
+    <Compile Include="DebuggerCore.cs" />
+    <Compile Include="DebuggerHelpAttribute.cs" />
+    <Compile Include="Expression.cs" />
+    <Compile Include="ExpressionBreakPoint.cs" />
+    <Compile Include="FarPointer.cs" />
+    <Compile Include="GenericSymbolScope.cs" />
+    <Compile Include="HistoryBuffer.cs" />
+    <Compile Include="InterruptBreakPoint.cs" />
+    <Compile Include="LiteralSymbol.cs" />
+    <Compile Include="MemoryBreakPoint.cs" />
+    <Compile Include="MemoryReadBreakPoint.cs" />
+    <Compile Include="MemoryWriteBreakPoint.cs" />
+    <Compile Include="MemoryChangeBreakPoint.cs" />
+    <Compile Include="Operators.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepOutBreakPoint.cs" />
+    <Compile Include="Symbol.cs" />
+    <Compile Include="ISymbolScope.cs" />
+    <Compile Include="WatchExpression.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PetaJson\PetaJson_Net40.csproj">
+      <Project>{32c1e6d1-46ba-4c3a-83bf-290e1c5d4690}</Project>
+      <Name>PetaJson_Net40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sharp86\Sharp86.csproj">
+      <Project>{b7b582a0-ced8-497b-a9b8-ef152326c713}</Project>
+      <Name>Sharp86</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

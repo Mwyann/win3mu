@@ -1,0 +1,25 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {4D0AA5D6-1C23-4975-8257-91E316544445} = s 'IconHandler Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{0483B199-F81F-4983-910B-19541C36EDB2}'
+			Version = s '1.0'
+		}
+
+	}
+	
+	'Win3mu.exe16file'
+    {
+        ShellEx
+        {
+            IconHandler = s '{4D0AA5D6-1C23-4975-8257-91E316544445}'
+        }
+    }
+
+}

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RuntimeFrameworkVersion>2.0.0-preview1-002111-00</RuntimeFrameworkVersion> 
+    <NETStandardImplicitPackageVersion>2.0.0-preview1-25301-01</NETStandardImplicitPackageVersion> 
+    <GenerateFullPaths>true</GenerateFullPaths>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP2_0;OSX</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE;RELEASE;NETCOREAPP2_0;OSX</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../PetaJson.cs" />
+  </ItemGroup>
+
+
+</Project>
