@@ -225,10 +225,11 @@ namespace Win3muCore
                 if (_exceptionThunks.TryGetValue(ordinal, out thunk))
                     return thunk;
 
-                Log.WriteLine("        Ordinal #{0:X4} in module {1} not supported - creating exception thunk", ordinal, GetModuleName());
+                Log.WriteLine("        Ordinal #{0:X4} in module {1} not supported - creating NOP thunk", ordinal, GetModuleName());
+                //thunk = _machine.CreateNopThunk("Unsupported ordinal thunk");
                 thunk = _machine.CreateSystemThunk(() =>
                 {
-                     throw new InvalidOperationException(string.Format("Unsupported ordinal #{0:X4} in module {1} invoked", ordinal, GetModuleName()));
+                    throw new InvalidOperationException(string.Format("Unsupported ordinal #{0:X4} in module {1} invoked", ordinal, GetModuleName()));
                 }, 0, false, "Unsupported ordinal thunk");
                 _exceptionThunks.Add(ordinal, thunk);
                 return thunk;

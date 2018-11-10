@@ -614,6 +614,22 @@ namespace Win3muCore
 
         List<Action> _systemThunkHanders = new List<Action>();
         Dictionary<ushort, string> _thunkNames = new Dictionary<ushort, string>();
+
+        public uint CreateNopThunk(string name)
+        {
+            // Capture address of this thunk
+            ushort address = _systemCodeGenPos;
+
+            ushort thunkIndex = (ushort)_systemThunkHanders.Count;
+            _systemThunkHanders.Add(() => { });
+            _thunkNames[thunkIndex] = name;
+
+            // Create the thunk
+            byte[] mem = _globalHeap.GetBuffer(_systemCodeSelector, true);
+            mem[_systemCodeGenPos++] = 0x90;
+            return (uint)(_systemCodeSelector << 16 | address);
+        }
+
         public uint CreateSystemThunk(Action handler, ushort popStack, bool preserveAX, string name)
         {
             // Capture address of this thunk
