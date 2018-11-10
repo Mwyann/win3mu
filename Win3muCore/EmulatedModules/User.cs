@@ -1449,22 +1449,68 @@ namespace Win3muCore
         }
 
         // 0089 - OPENCLIPBOARD
+        [EntryPoint(0x0089)]
+        [DllImport("user32.dll")]
+        public static extern bool OpenClipboard(HWND hWndNewOwner);
+
         // 008A - CLOSECLIPBOARD
+        [EntryPoint(0x008A)]
+        [DllImport("user32.dll")]
+        public static extern bool CloseClipboard();
+
         // 008B - EMPTYCLIPBOARD
+        [EntryPoint(0x008B)]
+        [DllImport("user32.dll")]
+        public static extern bool EmptyClipboard();
+
         // 008C - GETCLIPBOARDOWNER
+        [EntryPoint(0x008C)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetClipboardOwner();
+
         // 008D - SETCLIPBOARDDATA
+        [EntryPoint(0x008D)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetClipboardData(uint format);
+
         // 008E - GETCLIPBOARDDATA
+        [EntryPoint(0x008E)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetClipboardData(uint format);
+
         // 008F - COUNTCLIPBOARDFORMATS
+        [EntryPoint(0x008F)]
+        [DllImport("user32.dll")]
+        public static extern int CountClipboardFormats();
+
         // 0090 - ENUMCLIPBOARDFORMATS
+        [EntryPoint(0x0090)]
+        [DllImport("user32.dll")]
+        public static extern uint EnumClipboardFormats(uint format);
 
         [EntryPoint(0x0091)]
         [DllImport("user32.dll")]
         public static extern HCF RegisterClipboardFormat(string name);
 
         // 0092 - GETCLIPBOARDFORMATNAME
+        [EntryPoint(0x0092)]
+        [DllImport("user32.dll")]
+        public static extern int GetClipboardFormatName(uint format, [Out] StringBuilder lpszFormatName, int cchMaxCount);
+
         // 0093 - SETCLIPBOARDVIEWER
+        [EntryPoint(0x0093)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetClipboardViewer(HWND hWnd);
+
         // 0094 - GETCLIPBOARDVIEWER
+        [EntryPoint(0x0094)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetClipboardViewer();
+
         // 0095 - CHANGECLIPBOARDCHAIN
+        [EntryPoint(0x0095)]
+        [DllImport("user32.dll")]
+        public static extern bool ChangeClipboardChain(HWND hWndRemove, HWND hWndNewNext);
 
         [EntryPoint(0x0096)]
         public HMENU LoadMenu(ushort hInstance, StringOrId ridName)
