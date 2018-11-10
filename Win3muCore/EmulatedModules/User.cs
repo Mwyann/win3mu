@@ -779,8 +779,11 @@ namespace Win3muCore
             _didCallAdjustWindowRect = true;
             return _AdjustWindowRect(ref rc, style, bMenu);
         }
-         
+
         // 0067 - MAPDIALOGRECT
+        [EntryPoint(0x067)]
+        [DllImport("user32.dll")]
+        public static extern bool MapDialogRect(HWND hWnd, ref Win32.RECT lpRect);
 
         [EntryPoint(0x0068)]
         [DllImport("user32.dll")]
