@@ -17,11 +17,9 @@ along with Win3mu.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Win3muRuntime;
 
 namespace Win3mu
@@ -34,8 +32,12 @@ namespace Win3mu
             {
                 MessageBox(IntPtr.Zero, "Usage: win3mu <programName> [/debug|/release] [/break] [/config:name]", "Win3mu", 0x10);
             }
-
-            return API.Run(args[0], args.Skip(1).ToArray(), 1 /* SW_SHOWNORMAL */);
+            string fullPath = args[0];
+            if (Path.IsPathRooted(args[0]) == false)
+            {
+                fullPath = Path.Combine(Environment.CurrentDirectory, args[0]);
+            }
+            return API.Run(fullPath, args.Skip(1).ToArray(), 1 /* SW_SHOWNORMAL */);
         }
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
