@@ -2801,6 +2801,12 @@ namespace Win3muCore
         // 01FF - WNETUNLOCKQUEUEDATA
         // 0200 - WNETGETCONNECTION
         // 0201 - WNETGETCAPS
+        [EntryPoint(0x0201)]
+        public ushort WNETGETCAPS(ushort arg)
+        {
+            // WNNC_NET_Multinet | WNNC_SUBNET_WinWorkgroups
+            return 0x8004;
+        }
         // 0202 - WNETDEVICEMODE
         // 0203 - WNETBROWSEDIALOG
         // 0204 - WNETGETUSER
