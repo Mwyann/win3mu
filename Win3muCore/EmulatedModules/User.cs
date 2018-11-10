@@ -2217,10 +2217,27 @@ namespace Win3muCore
         }
 
         // 010B - SHOWSCROLLBAR
+        [EntryPoint(0x010b)]
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool ShowScrollBar(IntPtr hWnd, int wBar, [MarshalAs(UnmanagedType.Bool)] bool bShow);
         // 010C - GLOBALADDATOM
+        [EntryPoint(0x010c)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalAddAtom(string lpString);
+
         // 010D - GLOBALDELETEATOM
+        [EntryPoint(0x010d)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalDeleteAtom(string lpString);
         // 010E - GLOBALFINDATOM
+        [EntryPoint(0x010e)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalFindAtom(string lpString);
         // 010F - GLOBALGETATOMNAME
+        [EntryPoint(0x010f)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalGetAtomName(ushort nAtom, StringBuilder lpBuffer, int nSize);
 
         [EntryPoint(0x0110)]
         [DllImport("user32.dll")]
