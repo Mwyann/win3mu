@@ -1343,6 +1343,11 @@ namespace Win3muCore
                     HWND.RegisterHWndToHInstance(hWnd.value, value);
                     return old;
                 }
+
+                case Win16.GWW_ID:
+                {
+                    return _SetWindowLong(hWnd.value, (int)nIndex, value).Loword();
+                }
             }
 
             throw new NotImplementedException();
@@ -2218,9 +2223,12 @@ namespace Win3muCore
 
         // 00F2 - CREATEDIALOGINDIRECTPARAM
         // 00F3 - GETDIALOGBASEUNITS
+        [EntryPoint(0x00F3)]
+        [DllImport("user32.dll")]
+        public static extern uint GetDialogBaseUnits();
 
         [EntryPoint(0x00F4)]
-        [DllImport("user32")]
+        [DllImport("user32.dll")]
         public static extern bool EqualRect(ref Win32.RECT a, ref Win32.RECT b);
 
         // 00F5 - ENABLECOMMNOTIFICATION
