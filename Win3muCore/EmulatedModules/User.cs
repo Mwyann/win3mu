@@ -1774,8 +1774,6 @@ namespace Win3muCore
             return hBitmap;
         }
 
-        // 00B0 - LOADSTRING
-
         [EntryPoint(0x00b0)]
         public ushort LoadString(ushort hModule, ushort stringID, uint pszString, ushort cch)
         {
@@ -1921,19 +1919,30 @@ namespace Win3muCore
         {
             return 0;
         }
-        
+
         // 00BE - GETUPDATERECT
+        [EntryPoint(0x00BE)]
+        [DllImport("user32.dll")]
+        public static extern bool GetUpdateRect(HWND hWnd, Win32.RECT lpRect, bool erase);
 
         [EntryPoint(0x00BF)]
         [DllImport("user32.dll")]
         public static extern HWND ChildWindowFromPoint(HWND hWnd, Win32.POINT pt);
 
         // 00C0 - INSENDMESSAGE
+        [EntryPoint(0x00C0)]
+        [DllImport("user32.dll")]
+        public static extern bool InSendMessage();
+
         // 00C1 - ISCLIPBOARDFORMATAVAILABLE
+        [EntryPoint(0x00C1)]
+        [DllImport("user32.dll")]
+        public static extern bool IsClipboardFormatAvailable(uint format);
+
         // 00C2 - DLGDIRSELECTCOMBOBOX
         // 00C3 - DLGDIRLISTCOMBOBOX
-        // 00C4 - TABBEDTEXTOUT
 
+        // 00C4 - TABBEDTEXTOUT
         [DllImport("user32.dll")]
         public static extern uint TabbedTextOut(IntPtr hDC, int X, int Y, string str, int cch, int tabs, [In] int[] tabPositions, int tabOrigin);
 
