@@ -36,6 +36,11 @@ namespace Win3muCore
                 AppDomain currentDomain = AppDomain.CurrentDomain;
                 currentDomain.UnhandledException += UnhandledException;
             }
+            else
+            {
+                enableDebugger = true;
+                logExecution = true;
+            }
 
             _pathMapper = new PathMapper(this);
             _globalHeap = new GlobalHeap(this);
