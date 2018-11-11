@@ -301,6 +301,10 @@ namespace Win3muCore
             {
                 return 4;
             }
+            if(pt == typeof(Win16.RECT))
+            {
+                return 8;
+            }
             if (MappedTypeAttribute.Is(pt))
             {
                 var convertMethod = pt.GetMethod("To32");
