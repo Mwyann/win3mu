@@ -1061,6 +1061,12 @@ namespace Win3muCore
         // 01C4 - GDISEEGDIDO
         // 01CC - GDITASKTERMINATION
         // 01CD - SETOBJECTOWNER
+        [EntryPoint(0x1CD)]
+        public void SetObjectOwner(HGDIOBJ hObject, uint hTask)
+        {
+            // nothing to do
+            return;
+        }
         // 01CE - ISGDIOBJECT
         // 01CF - MAKEOBJECTPRIVATE
         // 01D0 - FIXUPBOGUSPUBLISHERMETAFILE
