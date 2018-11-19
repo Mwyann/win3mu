@@ -1061,13 +1061,20 @@ namespace Win3muCore
         // 01C4 - GDISEEGDIDO
         // 01CC - GDITASKTERMINATION
         // 01CD - SETOBJECTOWNER
-        [EntryPoint(0x1CD)]
+        [EntryPoint(0x01CD)]
+        // does not exist anymore in gdi32.dll
         public void SetObjectOwner(HGDIOBJ hObject, uint hTask)
         {
             // nothing to do
             return;
         }
         // 01CE - ISGDIOBJECT
+        [EntryPoint(0x01CE)]
+        // does not exist anymore in gdi32.dll
+        public bool IsGdiObject(HGDIOBJ hObject)
+        {
+            return hObject.value != IntPtr.Zero;
+        }
         // 01CF - MAKEOBJECTPRIVATE
         // 01D0 - FIXUPBOGUSPUBLISHERMETAFILE
         // 01D1 - RECTVISIBLE_EHH

@@ -970,6 +970,12 @@ namespace Win3muCore
 
 
         // 0087 - GETSYSTEMDIRECTORY
+        [EntryPoint(0x0087)]
+        public static nint GetSystemDirectory([Out] [BufSize(+1)] StringBuilder lpBuffer, nint uSize)
+        {
+            lpBuffer.Append("C:\\WINDOWS\\SYSTEM");
+            return lpBuffer.Length;
+        }
 
         [EntryPoint(0x0088)]
         public ushort GetDriveType(short drive)
@@ -1075,7 +1081,7 @@ namespace Win3muCore
             // Return the new selector
             return selDest.selector;
         }
-        
+
         // 00B2 - __WINFLAGS
 
 
@@ -1108,6 +1114,9 @@ namespace Win3muCore
         // 00CD - CVWBREAK
         // 00CE - ALLOCSELECTORARRAY
         // 00CF - ISDBCSLEADBYTE
+        [EntryPoint(0x00CF)]
+        [DllImport("kernel32.dll")]
+        public static extern bool IsDbcsLeadByte(byte character);
         // 0136 - LOCALHANDLEDELTA
         // 0137 - GETSETKERNELDOSPROC
         // 013A - DEBUGDEFINESEGMENT

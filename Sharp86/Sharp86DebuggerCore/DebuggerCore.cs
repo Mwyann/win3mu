@@ -660,7 +660,7 @@ namespace Sharp86
         }
 
         [Json("enableTrace")]
-        bool _enableTrace = false;
+        bool _enableTrace = true;
         public bool EnableTrace
         {
             get { return _enableTrace; }
