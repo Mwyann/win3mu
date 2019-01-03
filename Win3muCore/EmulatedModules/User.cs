@@ -779,8 +779,11 @@ namespace Win3muCore
             _didCallAdjustWindowRect = true;
             return _AdjustWindowRect(ref rc, style, bMenu);
         }
-         
+
         // 0067 - MAPDIALOGRECT
+        [EntryPoint(0x067)]
+        [DllImport("user32.dll")]
+        public static extern bool MapDialogRect(HWND hWnd, ref Win32.RECT lpRect);
 
         [EntryPoint(0x0068)]
         [DllImport("user32.dll")]
@@ -1340,6 +1343,11 @@ namespace Win3muCore
                     HWND.RegisterHWndToHInstance(hWnd.value, value);
                     return old;
                 }
+
+                case Win16.GWW_ID:
+                {
+                    return _SetWindowLong(hWnd.value, (int)nIndex, value).Loword();
+                }
             }
 
             throw new NotImplementedException();
@@ -1446,22 +1454,68 @@ namespace Win3muCore
         }
 
         // 0089 - OPENCLIPBOARD
+        [EntryPoint(0x0089)]
+        [DllImport("user32.dll")]
+        public static extern bool OpenClipboard(HWND hWndNewOwner);
+
         // 008A - CLOSECLIPBOARD
+        [EntryPoint(0x008A)]
+        [DllImport("user32.dll")]
+        public static extern bool CloseClipboard();
+
         // 008B - EMPTYCLIPBOARD
+        [EntryPoint(0x008B)]
+        [DllImport("user32.dll")]
+        public static extern bool EmptyClipboard();
+
         // 008C - GETCLIPBOARDOWNER
+        [EntryPoint(0x008C)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetClipboardOwner();
+
         // 008D - SETCLIPBOARDDATA
+        [EntryPoint(0x008D)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetClipboardData(uint format);
+
         // 008E - GETCLIPBOARDDATA
+        [EntryPoint(0x008E)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetClipboardData(uint format);
+
         // 008F - COUNTCLIPBOARDFORMATS
+        [EntryPoint(0x008F)]
+        [DllImport("user32.dll")]
+        public static extern int CountClipboardFormats();
+
         // 0090 - ENUMCLIPBOARDFORMATS
+        [EntryPoint(0x0090)]
+        [DllImport("user32.dll")]
+        public static extern uint EnumClipboardFormats(uint format);
 
         [EntryPoint(0x0091)]
         [DllImport("user32.dll")]
         public static extern HCF RegisterClipboardFormat(string name);
 
         // 0092 - GETCLIPBOARDFORMATNAME
+        [EntryPoint(0x0092)]
+        [DllImport("user32.dll")]
+        public static extern int GetClipboardFormatName(uint format, [Out] StringBuilder lpszFormatName, int cchMaxCount);
+
         // 0093 - SETCLIPBOARDVIEWER
+        [EntryPoint(0x0093)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetClipboardViewer(HWND hWnd);
+
         // 0094 - GETCLIPBOARDVIEWER
+        [EntryPoint(0x0094)]
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetClipboardViewer();
+
         // 0095 - CHANGECLIPBOARDCHAIN
+        [EntryPoint(0x0095)]
+        [DllImport("user32.dll")]
+        public static extern bool ChangeClipboardChain(HWND hWndRemove, HWND hWndNewNext);
 
         [EntryPoint(0x0096)]
         public HMENU LoadMenu(ushort hInstance, StringOrId ridName)
@@ -1720,8 +1774,6 @@ namespace Win3muCore
             return hBitmap;
         }
 
-        // 00B0 - LOADSTRING
-
         [EntryPoint(0x00b0)]
         public ushort LoadString(ushort hModule, ushort stringID, uint pszString, ushort cch)
         {
@@ -1867,19 +1919,30 @@ namespace Win3muCore
         {
             return 0;
         }
-        
+
         // 00BE - GETUPDATERECT
+        [EntryPoint(0x00BE)]
+        [DllImport("user32.dll")]
+        public static extern bool GetUpdateRect(HWND hWnd, Win32.RECT lpRect, bool erase);
 
         [EntryPoint(0x00BF)]
         [DllImport("user32.dll")]
         public static extern HWND ChildWindowFromPoint(HWND hWnd, Win32.POINT pt);
 
         // 00C0 - INSENDMESSAGE
+        [EntryPoint(0x00C0)]
+        [DllImport("user32.dll")]
+        public static extern bool InSendMessage();
+
         // 00C1 - ISCLIPBOARDFORMATAVAILABLE
+        [EntryPoint(0x00C1)]
+        [DllImport("user32.dll")]
+        public static extern bool IsClipboardFormatAvailable(uint format);
+
         // 00C2 - DLGDIRSELECTCOMBOBOX
         // 00C3 - DLGDIRLISTCOMBOBOX
-        // 00C4 - TABBEDTEXTOUT
 
+        // 00C4 - TABBEDTEXTOUT
         [DllImport("user32.dll")]
         public static extern uint TabbedTextOut(IntPtr hDC, int X, int Y, string str, int cch, int tabs, [In] int[] tabPositions, int tabOrigin);
 
@@ -2169,9 +2232,12 @@ namespace Win3muCore
 
         // 00F2 - CREATEDIALOGINDIRECTPARAM
         // 00F3 - GETDIALOGBASEUNITS
+        [EntryPoint(0x00F3)]
+        [DllImport("user32.dll")]
+        public static extern uint GetDialogBaseUnits();
 
         [EntryPoint(0x00F4)]
-        [DllImport("user32")]
+        [DllImport("user32.dll")]
         public static extern bool EqualRect(ref Win32.RECT a, ref Win32.RECT b);
 
         // 00F5 - ENABLECOMMNOTIFICATION
@@ -2195,6 +2261,9 @@ namespace Win3muCore
         // 0100 - GETDRIVERINFO
         // 0101 - GETNEXTDRIVER
         // 0102 - MAPWINDOWPOINTS
+        [EntryPoint(0x0102)]
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern int MapWindowPoints(HWND hWndFrom, HWND hWndTo, ref Win16.POINT []lpPoints, uint cPoints);
         // 0103 - BEGINDEFERWINDOWPOS
         // 0104 - DEFERWINDOWPOS
         // 0105 - ENDDEFERWINDOWPOS
@@ -2217,10 +2286,27 @@ namespace Win3muCore
         }
 
         // 010B - SHOWSCROLLBAR
+        [EntryPoint(0x010b)]
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool ShowScrollBar(IntPtr hWnd, int wBar, [MarshalAs(UnmanagedType.Bool)] bool bShow);
         // 010C - GLOBALADDATOM
+        [EntryPoint(0x010c)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalAddAtom(string lpString);
+
         // 010D - GLOBALDELETEATOM
+        [EntryPoint(0x010d)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalDeleteAtom(string lpString);
         // 010E - GLOBALFINDATOM
+        [EntryPoint(0x010e)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalFindAtom(string lpString);
         // 010F - GLOBALGETATOMNAME
+        [EntryPoint(0x010f)]
+        [DllImport("kernel32.dll")]
+        public static extern uint GlobalGetAtomName(ushort nAtom, StringBuilder lpBuffer, int nSize);
 
         [EntryPoint(0x0110)]
         [DllImport("user32.dll")]
@@ -2783,7 +2869,18 @@ namespace Win3muCore
         // 01FE - WNETLOCKQUEUEDATA
         // 01FF - WNETUNLOCKQUEUEDATA
         // 0200 - WNETGETCONNECTION
+        [EntryPoint(0x0200)]
+        public ushort WNetGetConnection(string lpLocalName, string lpRemoteName, uint lpnLength)
+        {
+            return 0;
+        }
         // 0201 - WNETGETCAPS
+        [EntryPoint(0x0201)]
+        public ushort WNETGETCAPS(ushort arg)
+        {
+            // WNNC_NET_Multinet | WNNC_SUBNET_WinWorkgroups
+            return 0x8004;
+        }
         // 0202 - WNETDEVICEMODE
         // 0203 - WNETBROWSEDIALOG
         // 0204 - WNETGETUSER
@@ -2796,8 +2893,23 @@ namespace Win3muCore
         // 020B - WNETRESTORECONNECTION
         // 020C - WNETWRITEJOB
         // 020D - WNETCONNECTDIALOG
+        [EntryPoint(0x020D)]
+        public void WNETCONNECTDIALOG()
+        {
+            return;
+        }
         // 020E - WNETDISCONNECTDIALOG
+        [EntryPoint(0x020E)]
+        public void WNETDISCONNECTDIALOG()
+        {
+            return;
+        }
         // 020F - WNETCONNECTIONDIALOG
+        [EntryPoint(0x020F)]
+        public void WNETCONNECTIONDIALOG()
+        {
+            return;
+        }
         // 0210 - WNETVIEWQUEUEDIALOG
         // 0211 - WNETPROPERTYDIALOG
         // 0212 - WNETGETDIRECTORYTYPE

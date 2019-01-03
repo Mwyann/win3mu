@@ -225,10 +225,11 @@ namespace Win3muCore
                 if (_exceptionThunks.TryGetValue(ordinal, out thunk))
                     return thunk;
 
-                Log.WriteLine("        Ordinal #{0:X4} in module {1} not supported - creating exception thunk", ordinal, GetModuleName());
+                Log.WriteLine("        Ordinal #{0:X4} in module {1} not supported - will throw an exception if called", ordinal, GetModuleName());
+                //thunk = _machine.CreateNopThunk("Unsupported ordinal thunk");
                 thunk = _machine.CreateSystemThunk(() =>
                 {
-                     throw new InvalidOperationException(string.Format("Unsupported ordinal #{0:X4} in module {1} invoked", ordinal, GetModuleName()));
+                    throw new InvalidOperationException(string.Format("Unsupported ordinal {0} (#{0:X4}) in module {1} invoked", ordinal, GetModuleName()));
                 }, 0, false, "Unsupported ordinal thunk");
                 _exceptionThunks.Add(ordinal, thunk);
                 return thunk;
@@ -299,6 +300,10 @@ namespace Win3muCore
             if (pt == typeof(Win32.POINT))
             {
                 return 4;
+            }
+            if(pt == typeof(Win16.RECT))
+            {
+                return 8;
             }
             if (MappedTypeAttribute.Is(pt))
             {

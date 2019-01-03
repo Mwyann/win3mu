@@ -98,7 +98,7 @@ namespace Sharp86
         {
             get
             {
-                return string.Format("Segment not preset fault at {0:X4}:{1:X4} segment 0x{2:X4} ", cs, ip, _seg);
+                return string.Format("Segment not present fault at {0:X4}:{1:X4} segment 0x{2:X4} ", cs, ip, _seg);
             }
         }
     }
@@ -963,7 +963,7 @@ namespace Sharp86
                     _m1 = true;
                     byte opCode = _activeMemoryBus.ReadByte(cs, ip++);
                     _m1 = false;
-
+                    //Console.Out.Write("OPCODE HEX : " + opCode.ToString("X2"));
                     switch (opCode)
                     {
                         case 0x00:

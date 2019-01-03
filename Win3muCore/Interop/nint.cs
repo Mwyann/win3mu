@@ -25,6 +25,9 @@ using System.Threading.Tasks;
 namespace Win3muCore
 {
     [MappedType]
+    /// <summary>
+    /// For uint
+    /// </summary>
     public struct nint : IFormattable
     {
         public nint(int value)
