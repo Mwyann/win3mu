@@ -10,9 +10,9 @@
     }
   },
 
-  "fileLogger": "C:\\Users\\max\\Downloads\\setups\\EnCours\\TEST\\$(AppName).txt",
-  "consoleLogger": true,
-  "enableDebugger": true,
+  "fileLogger": "$(AppData)\\Win3mu\\$(AppName).txt",
+  "consoleLogger": false,
+  "enableDebugger": false,
   "logRelocations": true,
   "logApiCalls": true,
   "logExecution": true,
